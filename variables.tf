@@ -1,7 +1,7 @@
 variable "region" {
   description = "AWS region"
   type        = string
-  default     = "us-east-2"
+  default     = "us-east-1"
 }
 
 variable "vpc_cidr" {
@@ -37,7 +37,7 @@ variable "cluster_name" {
 variable "cluster_version" {
   description = "Kubernetes version"
   type        = string
-  default     = "1.32"
+  default     = "1.33"
 }
 
 variable "node_groups" {
@@ -52,11 +52,11 @@ variable "node_groups" {
     })
   }))
   default = {
-    general = {
+    node_groupeks= {
       instance_types = ["t3.micro"]
       capacity_type  = "ON_DEMAND"
       scaling_config = {
-        desired_size = 1
+        desired_size = 2
         max_size     = 1
         min_size     = 1
       }
